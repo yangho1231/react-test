@@ -5,10 +5,10 @@ import BookDetails from './active-book';
 export default class App extends Component {
   render() {
     return (
-      <div>React simple starter
+      <div>
         <Navbar />
-        <BookList />
-        <BookDetails />
+        {this.props.children}
+        
       </div>
     );
   }

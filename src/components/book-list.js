@@ -1,17 +1,18 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux';
 import { selectBook } from '../actions/index';
+import { Link } from 'react-router';
+
 class BookList extends Component {
     renderList() {
         return this.props.book.map((book) => {
             return (
-                <li
-                key={book.title}
-                onClick={() => this.props.selectBook(book)}
-                
-                >
-                {book.title}
-
+                <li 
+                    key={book.title}
+                                 >
+                   <Link to={'book/'+ book.id}>
+                   {book.title}
+                   </Link>
                 </li>
             )
         })

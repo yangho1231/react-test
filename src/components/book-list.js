@@ -1,23 +1,28 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectBook } from '../actions/index';
+import { getBooks } from '../actions/index';
 import { Link } from 'react-router';
 
 class BookList extends Component {
+    componentWillMount() {
+        this.props.getBooks();
+    }
     renderList() {
+        
         return this.props.book.map((book) => {
+            
             return (
-                <li 
-                    key={book.title}
-                                 >
-                   <Link to={'book/'+ book.id}>
-                   {book.title}
-                   </Link>
+                <li key={book.book_id}>
+                    
+                    <Link to={'books/' + book.book_id}>
+                        {book.title}
+                    </Link>
                 </li>
-            )
+            );
         })
     }
     render() {
+       
         return(
             <div>{this.renderList()}</div>
         )
@@ -25,7 +30,8 @@ class BookList extends Component {
 }
 function mapStateToProps(state) {
     return {
-        book: state.books
+        
+        book: state.books.all
     }
 }
-export default connect(mapStateToProps, {selectBook})(BookList);
+export default connect(mapStateToProps, {getBooks})(BookList);

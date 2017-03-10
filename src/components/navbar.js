@@ -5,8 +5,8 @@ export default function navbar() {
         <div>
             <ul className='navbar-ul'>
                 <li>Home</li>
-                <li>Test</li>
-                <li>Test</li>
+                <li>Mypage</li>
+                <li>Login</li>
                 <li>Test</li>
             </ul>
         </div>

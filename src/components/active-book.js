@@ -5,27 +5,31 @@ class BookDetails extends Component {
     componentWillMount() {
         this.props.selectBook(this.props.params.id);
     }
-    render() {
-        
-
-        if(this.props.book === this.props.book.id) {
-            return <div>That is matching</div>
-        }
-        return(
-       
-
-            <div>
-                Book Title:{ this.props.book.title}
-                Book Pages: { this.props.book.pages}
-
+     renderList() {
+        return this.props.post.map((book) => {
+            
+            return (
+            <div key={book.book_id}>
+                
+                Book Title:{ book.title}
+                Book Pages: { book.pages}
             </div>
+            );
+        })
+    }
+    render() {
+        if(!this.props.post) {
+           return <div>Loading...</div>
+        }
+        return (
+            <div>{this.renderList()}</div>
         )
+
     }
 }
 function mapStateToProps(state) {
     return {
-        book: state.active,
-        books: state.books
+        post: state.books.post
     }
 }
 export default connect(mapStateToProps, {selectBook})(BookDetails);

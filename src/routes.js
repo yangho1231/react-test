@@ -10,7 +10,7 @@ export default(
 
         <IndexRoute component={BookList} />
   
-        <Route path = '/book/:id' component={BookDetails} />
+        <Route path = '/books/:id' component={BookDetails} />
     
     
     </Route>

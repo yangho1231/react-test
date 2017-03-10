@@ -14,12 +14,20 @@ var db = massive.connect({connectionString: config.connectionString}, function(e
     app.set('db', db);
 
 });
-app.get('/api/books', function(req, res, next) {
+app.get('/books', function(req, res, next) {
     db.get_books(function(err, users) {
         if(err) res.status(500).json(err);
         else res.json(users);
     })
 })
+app.get('/books/:id', function(req, res, next) {
+    db.get_individual([req.params.id], function(err, individual) {
+        console.log(individual);
+        if(err) res.status(500).send(err);
+        
+        else res.send(individual);
+    });
+});
 
 app.listen(3000, function() {
     console.log("I am listening");

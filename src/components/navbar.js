@@ -11,7 +11,7 @@ export default function navbar() {
                 </li>
                 <li>Mypage</li>
                 <li>Login</li>
-                <li>Test</li>
+                <li>Register</li>
             </ul>
         </div>
     )

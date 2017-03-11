@@ -5,7 +5,7 @@ class BookDetails extends Component {
     componentWillMount() {
         this.props.selectBook(this.props.params.id);
     }
-     renderList() {
+     /*renderList() {
         return this.props.post.map((book) => {
             
             return (
@@ -16,13 +16,18 @@ class BookDetails extends Component {
             </div>
             );
         })
-    }
+    }*/
     render() {
-        if(!this.props.post) {
+        const {post} = this.props;
+        if(!post) {
            return <div>Loading...</div>
         }
         return (
-            <div>{this.renderList()}</div>
+            <div>
+                <h1>Title: {post.title}</h1>
+                <h2>Pages: {post.pages}</h2>
+                <div>Reviews:</div>
+            </div>
         )
 
     }

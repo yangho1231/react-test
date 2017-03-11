@@ -12,7 +12,8 @@ class BookList extends Component {
         return this.props.book.map((book) => {
             
             return (
-                <li key={book.book_id}>
+                <li className='book-list'
+                key={book.book_id}>
                     
                     <Link to={'books/' + book.book_id}>
                         {book.title}

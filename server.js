@@ -22,10 +22,10 @@ app.get('/books', function(req, res, next) {
 })
 app.get('/books/:id', function(req, res, next) {
     db.get_individual([req.params.id], function(err, individual) {
-        console.log(individual);
+
         if(err) res.status(500).send(err);
         
-        else res.send(individual);
+        else res.send(individual[0]);
     });
 });
 

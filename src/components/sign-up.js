@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-
+import { signUpUser } from '../actions/index';
+import { connect } from 'react-redux'; 
 class SignUp extends Component {
     constructor(props) {
         super(props);
@@ -20,7 +21,7 @@ class SignUp extends Component {
     }
     onSubmit(event) {
         event.preventDefault();
-        console.log(this.state);
+
     }
     render() {
         return(
@@ -75,16 +76,13 @@ class SignUp extends Component {
                         name='timezone'
                         className='form-control'
                     />
-                </div>                                                                
-                <div className='form-group'>
+                </div>                                            <div className='form-group'>
                     <button className='btn btn-primary'>
                         Sign Up
                     </button>
                 </div>
-
-
             </form>
         ) 
     }
 }
-export default SignUp;
+export default connect(null, {signUpUser})(SignUp);

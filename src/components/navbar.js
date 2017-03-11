@@ -11,7 +11,11 @@ export default function navbar() {
                 </li>
                 <li>Mypage</li>
                 <li>Login</li>
-                <li>Register</li>
+                <li>
+                    <Link to='/signup'>
+                        Register
+                    </Link>
+                </li>
             </ul>
         </div>
     )

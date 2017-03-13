@@ -29,7 +29,7 @@ app.get('/books/:id', function(req, res, next) {
     });
 });
 app.post('/api/users', function(req, res, next) {
-    db.post_user([req.body.username, req.body.email, req.body.password], function(err, user) {
+    db.post_user([req.body.username, req.body.email, req.body.password, new Date()], function(err, user) {
         if(err) res.status(500).send(err);
         else res.send(user);
     })

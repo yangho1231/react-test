@@ -5,18 +5,6 @@ class BookDetails extends Component {
     componentWillMount() {
         this.props.selectBook(this.props.params.id);
     }
-     /*renderList() {
-        return this.props.post.map((book) => {
-            
-            return (
-            <div key={book.book_id}>
-                
-                Book Title:{ book.title}
-                Book Pages: { book.pages}
-            </div>
-            );
-        })
-    }*/
     render() {
         const {post} = this.props;
         if(!post) {

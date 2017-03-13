@@ -1,1 +1,1 @@
-INSERT INTO users (username, email, password) VALUES ($1, $2, $3);
+INSERT INTO users (username, email, password, joined) VALUES ($1, $2, $3, $4);

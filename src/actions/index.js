@@ -21,8 +21,9 @@ export function getBooks() {
         payload: request
     }
 }
-export function signUpUser(info) {
-    const request = axios.get(`${ROOT_URL}api/users`)
+export function signUpUser(props) {
+    console.log("props", props);
+    const request = axios.post(`${ROOT_URL}api/users`, props)
     return {
         type: SIGN_UP_USER,
         payload: request

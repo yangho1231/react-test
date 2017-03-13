@@ -28,6 +28,12 @@ app.get('/books/:id', function(req, res, next) {
         else res.send(individual[0]);
     });
 });
+app.post('/api/users', function(req, res, next) {
+    db.post_user([req.body.username, req.body.email, req.body.password], function(err, user) {
+        if(err) res.status(500).send(err);
+        else res.send(user);
+    })
+})
 
 app.listen(3000, function() {
     console.log("I am listening");

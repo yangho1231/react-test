@@ -45,7 +45,7 @@ class SignUp extends Component {
 
         <div className={`form-group ${password.touched && password.invalid ? 'has-danger' : ''}`}>
           <label>Password</label>
-          <input type='text' className="form-control" {...password} />
+          <input type='password' className="form-control" {...password} />
           <div className="text-help">
             {password.touched ? password.error : ''}
           </div>
@@ -53,7 +53,7 @@ class SignUp extends Component {
 
         <div className={`form-group ${passwordConfirmation.touched && passwordConfirmation.invalid ? 'has-danger' : ''}`}>
           <label>Password Confirm</label>
-          <input type='text' className="form-control" {...passwordConfirmation} />
+          <input type='password' className="form-control" {...passwordConfirmation} />
           <div className="text-help">
             {passwordConfirmation.touched ? passwordConfirmation.error : ''}
           </div>

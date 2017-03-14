@@ -23,7 +23,11 @@ export function getBooks() {
 }
 export function signUpUser(props) {
     console.log("props", props);
-    const request = axios.post(`${ROOT_URL}api/users`, props)
+    const request = axios({
+        url: 'http://localhost:3000/api/users',
+        method: 'post',
+        data: props
+    })
     return {
         type: SIGN_UP_USER,
         payload: request

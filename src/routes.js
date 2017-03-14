@@ -6,6 +6,7 @@ import NavBar from './components/navbar';
 import BookList from './components/book-list';
 import BookDetails from './components/active-book';
 import SignUp from './components/sign-up';
+import Login from './components/login';
 export default(
     <Route path = '/' component={App}>
 
@@ -13,6 +14,7 @@ export default(
   
         <Route path = '/books/:id' component={BookDetails} />
         <Route path ='/signup' component={SignUp} />
+        <Route path ='/login' component={Login} />
     
     </Route>
 );

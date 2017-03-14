@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import { getBooks } from '../actions/index';
 import { Link } from 'react-router';
 
+
 class BookList extends Component {
     componentWillMount() {
         this.props.getBooks();
     }
     renderList() {
-        
-        return this.props.book.map((book) => {
-            
+         return this.props.book.map((book) => {
             return (
+                             
                 <li className='book-list'
                 key={book.book_id}>
                     
@@ -22,17 +22,19 @@ class BookList extends Component {
             );
         })
     }
+
     render() {
-       
         return(
-            <div>{this.renderList()}</div>
+            <div>
+                {this.renderList()}
+            </div>
         )
     }
 }
 function mapStateToProps(state) {
     return {
-        
-        book: state.books.all
+        book: state.books.all,
+        user: state.user.post
     }
 }
 export default connect(mapStateToProps, {getBooks})(BookList);

@@ -9,8 +9,6 @@ class SignUp extends Component {
   };
 
   onSubmit(props) {
-      event.preventDefault();
-
     this.props.signUpUser(props)
       .then(() => {
         // blog post has been created, navigate the user to the index

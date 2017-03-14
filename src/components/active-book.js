@@ -7,11 +7,13 @@ class BookDetails extends Component {
     }
     render() {
         const {post} = this.props;
+        console.log(post)
         if(!post) {
            return <div>Loading...</div>
         }
         return (
             <div>
+   
                 <h1>Title: {post.title}</h1>
                 <h2>Pages: {post.pages}</h2>
                 <div>Reviews:</div>
@@ -22,7 +24,8 @@ class BookDetails extends Component {
 }
 function mapStateToProps(state) {
     return {
-        post: state.books.post
+        post: state.books.post,
+
     }
 }
 export default connect(mapStateToProps, {selectBook})(BookDetails);

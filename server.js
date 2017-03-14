@@ -28,10 +28,17 @@ app.get('/books/:id', function(req, res, next) {
         else res.send(individual[0]);
     });
 });
-app.post('/api/users', function(req, res, next) {
-    db.post_user([req.body.username, req.body.email, req.body.password, new Date()], function(err, user) {
+app.get('/api/users', function(req, res, next) {
+    db.get_users(function(err, users) {
+        if(err) res.status(500).json(err);
+        else res.json(users);
+    })
+})
+app.post('/api/users', function(req, res) {
+    db.post_user([req.body.username, req.body.email, req.body.password], function(err, users) {
+        console.log(users[0]);
         if(err) res.status(500).send(err);
-        else res.send(user);
+        else res.send(users[0]);
     })
 })
 

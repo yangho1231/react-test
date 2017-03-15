@@ -4,29 +4,55 @@ import { connect } from 'react-redux';
 class Navbar extends Component {
 
     render () {
-        return(
-            <div>
-                <ul className='navbar-ul'>
-                    <li>
-                        <Link to='/'>
-                            Home
-                        </Link>
-                    </li>
-                    <li>Mypage</li>
-                    <li>
-                        <Link to='/login'>
-                            Login
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to='/signup'>
-                            Register
-                        </Link>
-                    </li>
-                </ul>
-            </div>
-            )         
-        
+        const { user } = this.props;
+         if(user) {
+            return(
+                <div>
+                    <ul className='navbar-ul'>
+                        <li>
+                            <Link to='/'>
+                                Home
+                            </Link>
+                        </li>
+                        <li>{user.user.username}</li>
+                        <li>
+                            <Link to='/login'>
+                                Login
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/signup'>
+                                Register
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            )
+        }
+        else {
+             return(
+                <div>
+                    <ul className='navbar-ul'>
+                        <li>
+                            <Link to='/'>
+                                Home
+                            </Link>
+                        </li>
+                        <li>Mypage</li>
+                        <li>
+                            <Link to='/login'>
+                                Login
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/signup'>
+                                Register
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            )
+        }
     }
 }
 function mapStateToProps(state) {

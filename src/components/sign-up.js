@@ -10,11 +10,10 @@ class SignUp extends Component {
 
   onSubmit(props) {
     this.props.signUpUser(props)
-      .then(() => {
-        // blog post has been created, navigate the user to the index
-        // We navigate by calling this.context.router.push with the
-        // new path to navigate to.
-        this.context.router.push('/');
+      .then((res) => {
+        console.log("response", res);
+        if(res.payload.data === 'username taken') alert(res.payload.data);
+        else this.context.router.push('/');
       });
   }
 

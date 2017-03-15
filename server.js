@@ -34,11 +34,17 @@ app.get('/api/users', function(req, res, next) {
         else res.json(users);
     })
 })
-app.post('/api/users', function(req, res) {
-    db.post_user([req.body.username, req.body.email, req.body.password], function(err, users) {
-        console.log(users[0]);
-        if(err) res.status(500).send(err);
-        else res.send(users[0]);
+app.post('/api/users', function(req, res, next) {
+    db.check_username([req.body.username], function(err, result) {
+        console.log(result);
+        if(err) return next(err);
+        else if(result[0]) res.send('username taken');
+        else if(!result[0]) {
+            db.post_user([req.body.username, req.body.email, req.body.password], function(err, users) {
+            if(err) res.status(500).send(err);
+            else res.send(users[0]);
+            })
+        }
     })
 })
 

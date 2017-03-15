@@ -3,7 +3,7 @@ import axios from 'axios';
 export const BOOK_SELECTED = 'BOOK_SELECTED';
 export const GET_BOOKS = 'GET_BOOKS';
 export const SIGN_UP_USER = 'SIGN_UP_USER';
-
+export const LOGIN_USER = 'LOGIN_USER';
 const ROOT_URL = 'http://localhost:3000/';
 
 export function selectBook(id) {
@@ -30,6 +30,15 @@ export function signUpUser(props) {
     })
     return {
         type: SIGN_UP_USER,
+        payload: request
+    }
+}
+export function login(props) {    
+    console.log("login", props)
+    const request = axios.post(`${ROOT_URL}api/login`, props);
+
+    return {
+        type: LOGIN_USER,
         payload: request
     }
 }

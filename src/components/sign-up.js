@@ -11,7 +11,6 @@ class SignUp extends Component {
   onSubmit(props) {
     this.props.signUpUser(props)
       .then((res) => {
-        console.log("response", res);
         if(res.payload.data === 'username taken') alert(res.payload.data);
         else this.context.router.push('/');
       });

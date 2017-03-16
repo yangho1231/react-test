@@ -1,9 +1,25 @@
 import React, { Component } from 'react';
-
-export default class myPage extends Component {
+import { connect } from 'react-redux';
+class myPage extends Component {
     render() {
-        return(
-            <div>My Page</div>
-        )
+        const {user} = this.props;
+        console.log(user);
+        if(user) {
+            return(
+
+                <div>
+                    <h1>My Page</h1>
+                    <h2>Username: {user.user.username}</h2>
+                </div>
+
+            )
+        }
     }
 }
+function mapStateToProps(state) {
+    return {
+        user: state.user.post
+    }
+}
+
+export default connect(mapStateToProps)(myPage);

@@ -16,7 +16,11 @@ class Navbar extends Component {
                                 Home
                             </Link>
                         </li>
-                        <li>My Page</li>
+                        <li>
+                            <Link to='mypage'>
+                                    My Page
+                            </Link>
+                        </li>
                         <li>
                             {user.user.username}
                         </li>

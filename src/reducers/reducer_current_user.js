@@ -6,8 +6,13 @@ export default function(state = INITIAL_STATE , action) {
         case SIGN_UP_USER:
             return {...state, post: action.payload.data};
         case LOGIN_USER:
-            console.log("current user", action.payload.data);
-            return {...state, post: action.payload.data};
+            if(action.payload.data === "Username or Password is wrong"){
+                return {...state, post: null}
+            }
+            else {
+                return {...state, post: action.payload.data};
+            }
+            
         default:
             return state;
     }

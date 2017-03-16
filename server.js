@@ -48,28 +48,24 @@ app.post('/api/users', function(req, res, next) {
     })
 })
 app.post('/api/login', function(req, res, next) {
-    var flag = false;
+    // var flag = false;
     db.get_users(function(err, users) {
         if(err) res.status(500).json(err);
         else {
             for(var i = 0; i < users.length; i++) {
                 if(req.body.email == users[i].email && req.body.password == users[i].password) {
                     console.log("matched");
-                    flag=false;
+                    // flag=false;
                     var currentUser = users[i];
                     res.send({
                         msg: 'passed',
                         user: currentUser
                     })
                 }
-                else {
-                  flag = true;
-                  return;
+                // else {
+                //     res.send("Username or Password is wrong");
 
-                }
-            }
-            if(flag) {
-                res.send("Username or Password is wrong");
+                // }
             }
         }
 

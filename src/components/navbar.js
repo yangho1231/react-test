@@ -5,20 +5,20 @@ class Navbar extends Component {
 
     render () {
         const { user } = this.props;
+        console.log("user", user);
          if(user) {
             return(
                 <div>
                     <ul className='navbar-ul'>
+                        <li>Logut</li>
                         <li>
                             <Link to='/'>
                                 Home
                             </Link>
                         </li>
-                        <li>{user.user.username}</li>
+                        <li>My Page</li>
                         <li>
-                            <Link to='/login'>
-                                Login
-                            </Link>
+                            {user.user.username}
                         </li>
                         <li>
                             <Link to='/signup'>

@@ -24,11 +24,6 @@ class Navbar extends Component {
                         <li>
                             {user.user.username}
                         </li>
-                        <li>
-                            <Link to='/signup'>
-                                Register
-                            </Link>
-                        </li>
                     </ul>
                 </div>
             )

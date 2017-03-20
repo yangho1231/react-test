@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { selectBook } from '../actions/index';
+import { addToMyPage } from '../actions/index';
 import { Link } from 'react-router';
 class BookDetails extends Component {
-    componentWillMount() {
+     componentWillMount() {
         this.props.selectBook(this.props.params.id);
+    }
+    onClick(e) {
+
+        console.log('button clicked', e);
+
     }
     render() {
         const {post} = this.props;
@@ -19,7 +25,10 @@ class BookDetails extends Component {
                 <h1>Title: {post.title}</h1>
                 <h2>Pages: {post.pages}</h2>
                 <div>Reviews:</div>
-                <div>Add this to my page</div>
+                <div 
+                    onClick={this.onClick}>
+                    Add this to my page
+                </div>
 
             </div>
         )
@@ -33,4 +42,4 @@ function mapStateToProps(state) {
 
     }
 }
-export default connect(mapStateToProps, {selectBook})(BookDetails);
+export default connect(mapStateToProps, {selectBook, addToMyPage})(BookDetails);

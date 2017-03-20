@@ -4,6 +4,7 @@ export const BOOK_SELECTED = 'BOOK_SELECTED';
 export const GET_BOOKS = 'GET_BOOKS';
 export const SIGN_UP_USER = 'SIGN_UP_USER';
 export const LOGIN_USER = 'LOGIN_USER';
+export const ADD_MYPAGE = 'ADD_MYPAGE';
 const ROOT_URL = 'http://localhost:3000/';
 
 export function selectBook(id) {
@@ -13,7 +14,6 @@ export function selectBook(id) {
         payload: request
     }
 }
-
 export function getBooks() {
     const request = axios.get(`${ROOT_URL}books`);
     return {
@@ -41,4 +41,13 @@ export function login(props) {
         type: LOGIN_USER,
         payload: request
     }
+}
+export function addToMyPage(props) {
+    console.log("mypage" , props);
+    // const request = axios.post(`${ROOT_URL}api/mypage`, props);
+    
+    // return {
+    //     type: ADD_MYPAGE,
+    //     payload: request
+    // }
 }

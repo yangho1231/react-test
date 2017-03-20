@@ -31,7 +31,7 @@ class Login extends Component {
         .then((res) => {
           console.log("res", res);
         if(res.payload.data === 'Username or Password is wrong') alert(res.payload.data);
-        else this.context.router.push('/mypage');
+        else this.context.router.push('/');
       }) 
     }
 

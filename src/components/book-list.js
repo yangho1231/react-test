@@ -14,8 +14,7 @@ class BookList extends Component {
             return (
                              
                 <li className='book-list'
-                key={book.book_id}>
-                    
+                    key={book.book_id}>
                     <Link to={'books/' + book.book_id}>
                         {book.title}
                     </Link>

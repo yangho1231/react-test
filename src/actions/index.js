@@ -42,12 +42,12 @@ export function login(props) {
         payload: request
     }
 }
-export function addToMyPage(props) {
-    console.log("mypage" , props);
-    // const request = axios.post(`${ROOT_URL}api/mypage`, props);
+export function addToMyPage(user, post) {
+    console.log("mypage" , user, post);
+    const request = axios.post(`${ROOT_URL}api/mypage`, user, post);
     
-    // return {
-    //     type: ADD_MYPAGE,
-    //     payload: request
-    // }
+    return {
+        type: ADD_MYPAGE,
+        payload: request
+    }
 }

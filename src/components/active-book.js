@@ -26,7 +26,7 @@ class BookDetails extends Component {
                 <h2>Pages: {post.pages}</h2>
                 <div>Reviews:</div>
                 <div 
-                    onClick={this.onClick}>
+                    onClick={() => { this.props.addToMyPage( user.user.user_id, post.book_id) }}>
                     Add this to my page
                 </div>
 
@@ -35,6 +35,7 @@ class BookDetails extends Component {
 
     }
 }
+                    // onClick={() => { this.props.addToMyPage({user_id: user.user.user_id, book_id: post.book_id}) }}>
 function mapStateToProps(state) {
     return {
         post: state.books.post,

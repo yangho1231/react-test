@@ -19,6 +19,7 @@ class BookDetails extends Component {
                 <h1>Title: {post.title}</h1>
                 <h2>Pages: {post.pages}</h2>
                 <div>Reviews:</div>
+                <div>Add this to my page</div>
 
             </div>
         )

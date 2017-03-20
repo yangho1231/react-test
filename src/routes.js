@@ -16,7 +16,7 @@ export default(
         <Route path = '/books/:id' component={BookDetails} />
         <Route path ='/signup' component={SignUp} />
         <Route path ='/login' component={Login} />
-        <Route path='/mypage'  component={myPage} />
+        <Route path='/mypage/:id'  component={myPage} />
     
     </Route>
 );

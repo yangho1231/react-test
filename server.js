@@ -71,6 +71,13 @@ app.post('/api/login', function(req, res, next) {
 
     })
 })
+app.post('/api/mypage/', function(req, res, next) {
+    console.log(req.body);
+    db.add_mypage([req.body.userId, req.body.bookId], function(err, ids) {
+        if(err) res.stats(500).json(err);
+        else res.json(ids);
+    })
+})
 
 app.listen(3000, function() {
     console.log("I am listening");

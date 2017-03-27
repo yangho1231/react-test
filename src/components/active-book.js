@@ -7,11 +7,6 @@ class BookDetails extends Component {
      componentWillMount() {
         this.props.selectBook(this.props.params.id);
     }
-    onClick(e) {
-
-        console.log('button clicked', e);
-
-    }
     render() {
         const {post} = this.props;
         const {user} = this.props;
@@ -26,7 +21,12 @@ class BookDetails extends Component {
                 <h2>Pages: {post.pages}</h2>
                 <div>Reviews:</div>
                 <div 
-                    onClick={() => { this.props.addToMyPage( user.user.user_id, post.book_id) }}>
+                    onClick={() => { this.props.addToMyPage(
+                        {
+                            userId: user.user.user_id, 
+                            bookId: post.book_id
+                        }
+                        )}}>
                     Add this to my page
                 </div>
 

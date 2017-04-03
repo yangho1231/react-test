@@ -75,7 +75,11 @@ app.post('/api/mypage/', function(req, res, next) {
     console.log(req.body);
     db.add_mypage([req.body.userId, req.body.bookId], function(err, ids) {
         if(err) res.stats(500).json(err);
-        else res.json(ids);
+        db.get_mypage([req.body.userId], function(err, mypage) {
+            console.log(mypage);
+            if(err) res.stats(500).json(err);
+            else res.json(mypage);
+        })
     })
 })
 

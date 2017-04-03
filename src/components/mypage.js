@@ -2,16 +2,27 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 class myPage extends Component {
 
+    renderList() {
+          return this.props.list.map((list) => {
+            return (
+                <li className='book-list'
+                    key={list.book_id}>
+                        {list.title}
+                </li>
+            );
+        })
+    }
+       
+    
     render() {
         const {user} = this.props;
-        console.log(user);
         if(user) {
             return(
                 <div>
                     <h1>My Page</h1>
                     <h2>Username: {user.user.username}</h2>
                     <div>My Books:
-                        <li></li>
+                        {this.renderList()}
                     </div>
                 </div>
 
@@ -21,7 +32,8 @@ class myPage extends Component {
 }
 function mapStateToProps(state) {
     return {
-        user: state.user.post
+        user: state.user.post,
+        list: state.list.all
     }
 }
 

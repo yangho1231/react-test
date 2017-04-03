@@ -23,6 +23,7 @@ class myPage extends Component {
                     <h2>Username: {user.user.username}</h2>
                     <div>My Books:
                         {this.renderList()}
+
                     </div>
                 </div>
 

@@ -17,7 +17,7 @@ class Navbar extends Component {
                             </Link>
                         </li>
                         <li>
-                            <Link to={'mypage/' + user.user.user_id}>
+                            <Link to={'/mypage/' + user.user.user_id}>
                                     My Page
                             </Link>
                         </li>

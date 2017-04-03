@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 class myPage extends Component {
-
+    componentWillMount() {    console.log("testid", this.props.params.id);
+}
     renderList() {
           return this.props.list.map((list) => {
             return (

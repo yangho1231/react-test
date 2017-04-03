@@ -10,7 +10,6 @@ class BookDetails extends Component {
     render() {
         const {post} = this.props;
         const {user} = this.props;
-        console.log("This Book", post)
         if(!post) {
            return <div>Loading...</div>
         }

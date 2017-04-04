@@ -22,12 +22,16 @@ app.get('/books', function(req, res, next) {
 })
 app.get('/books/:id', function(req, res, next) {
     db.get_individual([req.params.id], function(err, individual) {
-
         if(err) res.status(500).send(err);
-        
         else res.send(individual[0]);
     });
 });
+app.get('/mypage/:id', function(req, res, next) {
+    db.get_mypage([req.params.id], function(err, individual) {
+        if(err) res.status(500).send(err);
+        else res.send(individual);
+    })
+})
 app.get('/api/users', function(req, res, next) {
     db.get_users(function(err, users) {
         if(err) res.status(500).json(err);
@@ -72,14 +76,9 @@ app.post('/api/login', function(req, res, next) {
     })
 })
 app.post('/api/mypage/', function(req, res, next) {
-    console.log(req.body);
     db.add_mypage([req.body.userId, req.body.bookId], function(err, ids) {
         if(err) res.stats(500).json(err);
-        db.get_mypage([req.body.userId], function(err, mypage) {
-            console.log(mypage);
-            if(err) res.stats(500).json(err);
-            else res.json(mypage);
-        })
+        else res.send(ids);
     })
 })
 

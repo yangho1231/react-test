@@ -25,8 +25,7 @@ class myPage extends Component {
                     <h1>My Page</h1>
                     <h2>Username: {user.user.username}</h2>
                     <div>My Books:
-                        {this.renderList()}
-
+                            {this.renderList()}
                     </div>
                 </div>
 

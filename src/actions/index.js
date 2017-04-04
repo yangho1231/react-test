@@ -31,7 +31,6 @@ export function getBooks() {
     }
 }
 export function signUpUser(props) {
-    console.log("props", props);
     const request = axios({
         url: 'http://localhost:3000/api/users',
         method: 'post',
@@ -43,7 +42,6 @@ export function signUpUser(props) {
     }
 }
 export function login(props) {    
-    console.log("login", props)
     const request = axios.post(`${ROOT_URL}api/login`, props);
 
     return {
@@ -52,7 +50,6 @@ export function login(props) {
     }
 }
 export function addToMyPage(user, post) {
-    console.log("mypage" , user, post);
     const request = axios.post(`${ROOT_URL}api/mypage`, user, post);
     
     return {

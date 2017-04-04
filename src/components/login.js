@@ -29,9 +29,8 @@ class Login extends Component {
       event.preventDefault();
       this.props.login(this.state)
         .then((res) => {
-          console.log("res", res);
         if(res.payload.data === 'Username or Password is wrong') alert(res.payload.data);
-        else console.log("push", res.payload.data.user.user_id);this.context.router.push('/');
+        else this.context.router.push('/');
       }) 
     }
 

@@ -5,7 +5,6 @@ class Navbar extends Component {
 
     render () {
         const { user } = this.props;
-        console.log("user", user);
          if(user) {
             return(
                 <div>

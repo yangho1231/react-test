@@ -34,7 +34,7 @@ class BookDetails extends Component {
 
     }
 }
-                    // onClick={() => { this.props.addToMyPage({user_id: user.user.user_id, book_id: post.book_id}) }}>
+
 function mapStateToProps(state) {
     return {
         post: state.books.post,

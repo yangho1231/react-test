@@ -5,12 +5,21 @@ export const GET_BOOKS = 'GET_BOOKS';
 export const SIGN_UP_USER = 'SIGN_UP_USER';
 export const LOGIN_USER = 'LOGIN_USER';
 export const ADD_MYPAGE = 'ADD_MYPAGE';
+export const GET_MYPAGE = 'GET_MYPAGE';
+
 const ROOT_URL = 'http://localhost:3000/';
 
 export function selectBook(id) {
     const request = axios.get(`${ROOT_URL}books/${id}`)
     return {
         type: BOOK_SELECTED,
+        payload: request
+    }
+}
+export function selectUserId(id) {
+    const request = axios.get(`${ROOT_URL}mypage/${id}`);
+    return {
+        type: GET_MYPAGE,
         payload: request
     }
 }

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { selectUserId } from '../actions/index.js';
 class myPage extends Component {
-    componentWillMount() {    console.log("testid", this.props.params.id);
+    componentWillMount() {    
+        this.props.selectUserId(this.props.params.id);
 }
     renderList() {
           return this.props.list.map((list) => {
@@ -39,4 +41,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(myPage);
+export default connect(mapStateToProps, { selectUserId })(myPage);

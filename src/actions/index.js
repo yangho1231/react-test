@@ -16,7 +16,7 @@ export function selectBook(id) {
         payload: request
     }
 }
-export function selectUserId(id) {
+export function selectUser(id) {
     const request = axios.get(`${ROOT_URL}mypage/${id}`);
     return {
         type: GET_MYPAGE,

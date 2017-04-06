@@ -8,7 +8,7 @@ import { getBooks } from '../actions/index';
 class BookDetails extends Component {
 
     componentWillMount() {
-        
+        this.props.selectBook(this.props.params.id)
         if(this.props.user) {
             this.props.selectUser(this.props.user.user.user_id);
         }

@@ -4,7 +4,7 @@ import { selectUser } from '../actions/index.js';
 class myPage extends Component {
     componentWillMount() {    
         this.props.selectUser(this.props.params.id);
-}
+    }
     renderList() {
           return this.props.list.map((list) => {
             return (
@@ -15,7 +15,6 @@ class myPage extends Component {
             );
         })
     }
-       
     
     render() {
         const {user} = this.props;
@@ -28,7 +27,6 @@ class myPage extends Component {
                             {this.renderList()}
                     </div>
                 </div>
-
             )
         }
     }

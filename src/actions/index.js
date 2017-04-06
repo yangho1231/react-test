@@ -18,6 +18,7 @@ export function selectBook(id) {
 }
 export function selectUser(id) {
     const request = axios.get(`${ROOT_URL}mypage/${id}`);
+    console.log("id", id);
     return {
         type: GET_MYPAGE,
         payload: request

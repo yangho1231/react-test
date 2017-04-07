@@ -5,6 +5,7 @@ import { addToMyPage } from '../actions/index';
 import { Link } from 'react-router';
 import { selectUser } from '../actions/index.js';
 import { getBooks } from '../actions/index';
+import _ from 'lodash';
 class BookDetails extends Component {
     componentWillMount() {
         this.props.selectBook(this.props.params.id)
@@ -17,52 +18,60 @@ class BookDetails extends Component {
     }
 
     renderList() {
-        let flag = true;
-          return this.props.list.map((list) => {
-            if(list.book_id === parseInt(this.props.params.id)) {
-                console.log("true");
-                return flag;
-            }
+
+        const elems = [];
+        const urlId = parseInt(this.props.params.id);
+        this.props.list.forEach((list) => {
+            console.log("list", list.book_id);
+            console.log("params", this.props.params.id)
+                if(list.book_id === urlId) {
+                    console.log("true");
+                    elems.push({
+                        book: list.book_id
+                    })
+                }
         })
+        return elems;
     }
     render() {
         const {post} = this.props;
         const {user} = this.props;
         const {list} = this.props;
+        const renderList = this.renderList();
+        const urlId = parseInt(this.props.params.id);
 
         if(!post) {
            return <div>Loading...</div>
         }
 
-        if(user && this.renderList()[0] === true) {
-               console.log("user render", this.renderList());
-           return (
-               <div>
-                    <h1>Title: {post.title}</h1>
-                    <h2>Pages: {post.pages}</h2>
-                    <div>Reviews:</div>
-
-                </div>
-            )
-        }
-        else if(user) {
-            console.log("user", this.renderList());
-            return (
-                <div>
-                    <h1>Title: {post.title}</h1>
-                    <h2>Pages: {post.pages}</h2>
-                    <div>Reviews:</div>
-                    <button 
-                        onClick={() => { this.props.addToMyPage(
-                            {
-                                userId: user.user.user_id, 
-                                bookId: post.book_id
-                            }
-                            )}}>
-                        Add this to my page
-                    </button>
-                </div>
-            )
+        if(user && list) {
+            if(urlId === _.get(renderList, '[0].book')) {
+                return (
+                    <div>
+                        <h1>Title: {post.title}</h1>
+                        <h2>Pages: {post.pages}</h2>
+                        <div>Reviews:</div>
+                    </div>
+                )
+            }
+            else {
+                return (
+                   <div>
+                        <h1>Title: {post.title}</h1>
+                        <h2>Pages: {post.pages}</h2>
+                        <div>Reviews:</div>
+                        <button 
+                            onClick={() => { this.props.addToMyPage(
+                                {
+                                    userId: user.user.user_id, 
+                                    bookId: post.book_id
+                                }
+                                )}}>
+                            Add this to my page
+                        </button>
+                    </div>
+                )
+            }
         }
         else {
             return (

@@ -6,7 +6,14 @@ import { Link } from 'react-router';
 import { selectUser } from '../actions/index.js';
 import { getBooks } from '../actions/index';
 import _ from 'lodash';
+
 class BookDetails extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            show: true
+        };
+    }
     componentWillMount() {
         this.props.selectBook(this.props.params.id)
         if(this.props.user) {
@@ -18,14 +25,10 @@ class BookDetails extends Component {
     }
 
     renderList() {
-
         const elems = [];
         const urlId = parseInt(this.props.params.id);
         this.props.list.forEach((list) => {
-            console.log("list", list.book_id);
-            console.log("params", this.props.params.id)
                 if(list.book_id === urlId) {
-                    console.log("true");
                     elems.push({
                         book: list.book_id
                     })
@@ -60,15 +63,16 @@ class BookDetails extends Component {
                         <h1>Title: {post.title}</h1>
                         <h2>Pages: {post.pages}</h2>
                         <div>Reviews:</div>
-                        <button 
+                        {this.state.show && <button 
                             onClick={() => { this.props.addToMyPage(
                                 {
                                     userId: user.user.user_id, 
                                     bookId: post.book_id
                                 }
-                                )}}>
+                                ); this.setState({show:false})}}>
                             Add this to my page
                         </button>
+                        }
                     </div>
                 )
             }

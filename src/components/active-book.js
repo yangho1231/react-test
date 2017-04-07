@@ -6,7 +6,6 @@ import { Link } from 'react-router';
 import { selectUser } from '../actions/index.js';
 import { getBooks } from '../actions/index';
 class BookDetails extends Component {
-
     componentWillMount() {
         this.props.selectBook(this.props.params.id)
         if(this.props.user) {
@@ -16,17 +15,13 @@ class BookDetails extends Component {
             this.props.selectBook(this.props.params.id);
         }
     }
+
     renderList() {
+        let flag = true;
           return this.props.list.map((list) => {
-            console.log(list.book_id);
-            console.log(this.props.params.id)
             if(list.book_id === parseInt(this.props.params.id)) {
-                return (
-                    <li className='book-list'
-                        key={list.book_id}>
-                            {list.book_id}
-                    </li>
-                );
+                console.log("true");
+                return flag;
             }
         })
     }
@@ -34,11 +29,24 @@ class BookDetails extends Component {
         const {post} = this.props;
         const {user} = this.props;
         const {list} = this.props;
+
         if(!post) {
            return <div>Loading...</div>
         }
- 
-        if(user) {
+
+        if(user && this.renderList()[0] === true) {
+               console.log("user render", this.renderList());
+           return (
+               <div>
+                    <h1>Title: {post.title}</h1>
+                    <h2>Pages: {post.pages}</h2>
+                    <div>Reviews:</div>
+
+                </div>
+            )
+        }
+        else if(user) {
+            console.log("user", this.renderList());
             return (
                 <div>
                     <h1>Title: {post.title}</h1>

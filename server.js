@@ -28,7 +28,6 @@ app.get('/books/:id', function(req, res, next) {
 });
 app.get('/mypage/:id', function(req, res, next) {
     db.get_mypage([req.params.id], function(err, individual) {
-        console.log(req.params.id);
         console.log(individual);
         if(err) res.status(500).send(err);
         else res.send(individual);

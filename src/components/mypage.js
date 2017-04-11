@@ -18,9 +18,13 @@ class myPage extends Component {
     
     render() {
         const {user} = this.props;
+        let date = user.user.registered;
+
         if(user) {
+            console.log(user);
             return(
                 <div>
+                    <h2>Date Joined: {user.user.registered}</h2>
                     <h1>My Page</h1>
                     <h2>Username: {user.user.username}</h2>
                     <div>My Books:

@@ -45,7 +45,7 @@ app.post('/api/users', function(req, res, next) {
          if(err) return next(err);
         else if(result[0]) res.send('username taken');
         else if(!result[0]) {
-            db.post_user([req.body.username, req.body.email, req.body.password], function(err, users) {
+            db.post_user([req.body.username, req.body.email, req.body.password, new Date()], function(err, users) {
             if(err) res.status(500).send(err);
             else res.send(users[0]);
             })

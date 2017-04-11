@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { selectUser } from '../actions/index.js';
+import _ from 'lodash';
 class myPage extends Component {
     componentWillMount() {    
         this.props.selectUser(this.props.params.id);
@@ -18,13 +19,13 @@ class myPage extends Component {
     
     render() {
         const {user} = this.props;
-        let date = user.user.registered;
+        const {list} = this.props;
+        const date = _.get(list, '[0].joined');
 
         if(user) {
-            console.log(user);
             return(
                 <div>
-                    <h2>Date Joined: {user.user.registered}</h2>
+                    <h2>Date Joined: {date}</h2>
                     <h1>My Page</h1>
                     <h2>Username: {user.user.username}</h2>
                     <div>My Books:

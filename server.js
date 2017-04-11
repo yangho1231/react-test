@@ -28,7 +28,7 @@ app.get('/books/:id', function(req, res, next) {
 });
 app.get('/mypage/:id', function(req, res, next) {
     db.get_mypage([req.params.id], function(err, individual) {
-        console.log(individual);
+        console.log(individual[0].joined);
         if(err) res.status(500).send(err);
         else res.send(individual);
     })
@@ -41,7 +41,7 @@ app.get('/api/users', function(req, res, next) {
 })
 app.post('/api/users', function(req, res, next) {
     db.check_username([req.body.username], function(err, result) {
-         if(err) return next(err);
+        if(err) return next(err);
         else if(result[0]) res.send('username taken');
         else if(!result[0]) {
             db.post_user([req.body.username, req.body.email, req.body.password, new Date()], function(err, users) {

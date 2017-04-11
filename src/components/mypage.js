@@ -12,6 +12,8 @@ class myPage extends Component {
                 <li className='book-list'
                     key={list.book_id}>
                         {list.title}
+                        <button onClick={() => {
+                            console.log("Clicked", list.book_id) }}>Delete</button>
                 </li>
             );
         })
@@ -29,7 +31,11 @@ class myPage extends Component {
                     <h1>My Page</h1>
                     <h2>Username: {user.user.username}</h2>
                     <div>My Books:
-                            {this.renderList()}
+                            <h1>
+                                {this.renderList()}
+                            </h1>
+                            
+                            
                     </div>
                 </div>
             )

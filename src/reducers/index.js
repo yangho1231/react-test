@@ -10,5 +10,4 @@ const rootReducer = combineReducers({
     user: currentUser,
     list: myPage
 });
-
 export default rootReducer;

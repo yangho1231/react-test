@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 class Navbar extends Component {
-
     render () {
         const { user } = this.props;
          if(user) {

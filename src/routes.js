@@ -10,13 +10,10 @@ import Login from './components/login';
 import myPage from './components/mypage';
 export default(
     <Route path = '/' component={App}>
-
         <IndexRoute component={BookList} />
-  
         <Route path = '/books/:id' component={BookDetails} />
         <Route path ='/signup' component={SignUp} />
         <Route path ='/login' component={Login} />
         <Route path='/mypage/:id'  component={myPage} />
-    
     </Route>
 );

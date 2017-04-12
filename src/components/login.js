@@ -12,7 +12,6 @@ class Login extends Component {
       this.onFormSubmit = this.onSubmit.bind(this);
       this.onEmailChange = this.onEmailChange.bind(this);
       this.onPasswordChange = this.onPasswordChange.bind(this);
-
     }
     onEmailChange(event) {
       this.setState({ email: event.target.value });

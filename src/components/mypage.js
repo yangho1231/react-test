@@ -4,7 +4,6 @@ import { selectUser } from '../actions/index.js';
 import { deleteBook } from '../actions/index.js';
 import _ from 'lodash';
 class MyPage extends Component {
-
     componentWillMount() {    
         this.props.selectUser(this.props.params.id)
     }

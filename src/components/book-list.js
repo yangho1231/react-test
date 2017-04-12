@@ -7,7 +7,6 @@ import { Link } from 'react-router';
 class BookList extends Component {
     componentWillMount() {
         this.props.getBooks();
-        
     }
     renderList() {
          return this.props.book.map((book) => {

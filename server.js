@@ -32,6 +32,12 @@ app.get('/mypage/:id', function(req, res, next) {
         else res.send(individual);
     })
 })
+app.delete('/mypage/:id', function(req, res, next) {
+    db.delete_mylist([req.params.id], function(err, individual) {
+        if(err) res.status(500).send(err);
+        else res.send(individual);
+    })
+})
 app.get('/api/users', function(req, res, next) {
     db.get_users(function(err, users) {
         if(err) res.status(500).json(err);

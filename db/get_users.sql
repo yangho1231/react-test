@@ -1,1 +1,1 @@
-select * from users;
+select user_id, username, email, password, to_char(registered, 'YYYY-MM-DD') as joined from users;

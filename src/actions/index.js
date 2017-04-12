@@ -6,6 +6,7 @@ export const SIGN_UP_USER = 'SIGN_UP_USER';
 export const LOGIN_USER = 'LOGIN_USER';
 export const ADD_MYPAGE = 'ADD_MYPAGE';
 export const GET_MYPAGE = 'GET_MYPAGE';
+export const DELETE_BOOK = 'DELETE_BOOK';
 
 const ROOT_URL = 'http://localhost:3000/';
 
@@ -16,9 +17,16 @@ export function selectBook(id) {
         payload: request
     }
 }
+export function deleteBook(id) {
+    const request = axios.delete(`${ROOT_URL}mypage/${id}`)
+    console.log(id, "id");
+    return {
+        type: DELETE_BOOK,
+        payload: request
+    }
+}
 export function selectUser(id) {
     const request = axios.get(`${ROOT_URL}mypage/${id}`);
-    console.log("id", id);
     return {
         type: GET_MYPAGE,
         payload: request

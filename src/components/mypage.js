@@ -29,7 +29,6 @@ class MyPage extends Component {
     }
     render() {
         const {user} = this.props;
-        const {list} = this.props;
         if(user) {
             return(
                 <div>

@@ -32,10 +32,15 @@ app.get('/mypage/:id', function(req, res, next) {
         else res.send(individual);
     })
 })
-app.delete('/mypage/:id', function(req, res, next) {
+app.delete('/mypage/list/:id', function(req, res, next) {
     db.delete_mylist([req.params.id], function(err, individual) {
         if(err) res.status(500).send(err);
-        else res.send(individual);
+        else {
+            db.get_mypage_book(function(err, all) {
+                if(err) res.status(500).send(err);
+                else res.send(all);
+            })
+        }
     })
 })
 app.get('/api/users', function(req, res, next) {

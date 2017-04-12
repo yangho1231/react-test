@@ -18,8 +18,7 @@ export function selectBook(id) {
     }
 }
 export function deleteBook(id) {
-    const request = axios.delete(`${ROOT_URL}mypage/${id}`)
-    console.log(id, "id");
+    const request = axios.delete(`${ROOT_URL}mypage/list/${id}`)
     return {
         type: DELETE_BOOK,
         payload: request

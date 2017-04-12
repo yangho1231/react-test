@@ -3,19 +3,13 @@ import { connect } from 'react-redux';
 import { selectUser } from '../actions/index.js';
 import { deleteBook } from '../actions/index.js';
 import _ from 'lodash';
-class myPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            delete: 0
-        }
-    }
-    
+class MyPage extends Component {
+
     componentWillMount() {    
-        this.props.selectUser(this.props.params.id);
+        this.props.selectUser(this.props.params.id)
     }
-    onClickChange() {
-        this.setState({delete: list.book_id});
+    removeList(postinfo) {
+        this.props.deleteBook(postinfo);
     }
     renderList() {
           return this.props.list.map((list) => {
@@ -24,23 +18,20 @@ class myPage extends Component {
                     key={list.book_id}>
                         {list.title}
                         <button
-                        value={this.state.delete}
-                        onChange={this.onClickChange} 
                         onClick={() => {
-                            this.props.deleteBook(list.book_id);
-                        }}>Delete</button>
-                         
+                            this.removeList(list.book_id); 
+                           }  
+                        }>
+                        Delete
+                        </button>
                 </li>
             );
         })
-        
     }
-    
     render() {
         const {user} = this.props;
         const {list} = this.props;
         if(user) {
-
             return(
                 <div>
                     <h2>Date Joined: {user.user.joined}</h2>
@@ -49,9 +40,8 @@ class myPage extends Component {
                     <div>My Books:
                             <h1>
                                 {this.renderList()}
+
                             </h1>
-                            
-                            
                     </div>
                 </div>
             )
@@ -64,5 +54,4 @@ function mapStateToProps(state) {
         list: state.list.all
     }
 }
-
-export default connect(mapStateToProps, { selectUser, deleteBook })(myPage);
+export default connect(mapStateToProps, { selectUser, deleteBook })(MyPage);

@@ -27,20 +27,10 @@ const controller = require('./mainCtrl.js');
 
 
 //REST METHOD
-app.get('/books', controller.GetBook);
+app.get('/books', controller.GetBooks);
+app.get('/books/:id', controller.GetBook);
+app.get('/mypage/:id', controller.GetMyPage);
 
-app.get('/books/:id', function(req, res, next) {
-    db.get_individual([req.params.id], function(err, individual) {
-        if(err) res.status(500).send(err);
-        else res.send(individual[0]);
-    });
-});
-app.get('/mypage/:id', function(req, res, next) {
-    db.get_mypage([req.params.id], function(err, individual) {
-        if(err) res.status(500).send(err);
-        else res.send(individual);
-    });
-});
 app.delete('/mypage/list/:id', function(req, res, next) {
     db.delete_mylist([req.params.id], function(err, individual) {
         if(err) res.status(500).send(err);

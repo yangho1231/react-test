@@ -1,2 +1,2 @@
-select username from users
-where username = $1
+SELECT username FROM users
+WHERE username = $1

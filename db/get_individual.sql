@@ -1,2 +1,2 @@
-SELECT * from book
-where book_id = $1;
+SELECT * FROM book
+WHERE book_id = $1;

@@ -1,2 +1,2 @@
-delete from mypage
-where book_id = $1;
+DELETE FROM mypage
+WHERE book_id = $1;

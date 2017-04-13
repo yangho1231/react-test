@@ -4,22 +4,31 @@ const session = require('express-session');
 const cors = require('cors');
 const massive = require('massive');
 const config = require('./config');
-const app = express();
+const app = module.exports = express();
+
+const mass = massive.connectSync({connectionString: config.connectionString});
 
 app.use(bodyParser.json());
 app.use(cors());
 
-let db = massive.connect({connectionString: config.connectionString}, function(err, localdb){
-    db = localdb;
-    app.set('db', db);
+//db settings
+app.set('db', mass);
+let db = app.get('db');
 
-});
-app.get('/books', function(req, res, next) {
-    db.get_books(function(err, users) {
-        if(err) res.status(500).json(err);
-        else res.json(users);
-    });
-});
+//The Controller for the server.js
+const controller = require('./mainCtrl.js');
+
+// let db = massive.connect({connectionString: config.connectionString}, function(err, localdb){
+//     db = localdb;
+//     app.set('db', db);
+
+// });
+
+
+
+//REST METHOD
+app.get('/books', controller.GetBook);
+
 app.get('/books/:id', function(req, res, next) {
     db.get_individual([req.params.id], function(err, individual) {
         if(err) res.status(500).send(err);

@@ -80,7 +80,6 @@ function validate(values) {
   if(values.password !== values.passwordConfirmation) {
     errors.passwordConfirmation = 'Password do not match';
   }
-
   return errors;
 }
 export default reduxForm({

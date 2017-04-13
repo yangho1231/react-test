@@ -53,7 +53,6 @@ export function signUpUser(props) {
 }
 export function login(props) {    
     const request = axios.post(`${ROOT_URL}api/login`, props);
-
     return {
         type: LOGIN_USER,
         payload: request

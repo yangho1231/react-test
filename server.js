@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const db = massive.connect({connectionString: config.connectionString}, function(err, localdb){
+let db = massive.connect({connectionString: config.connectionString}, function(err, localdb){
     db = localdb;
     app.set('db', db);
 

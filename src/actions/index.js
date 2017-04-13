@@ -60,7 +60,6 @@ export function login(props) {
     }
 }
 export function logout(id) {
-    console.log("id", id);
     return {
         type: LOGOUT_USER
     }
@@ -71,5 +70,5 @@ export function addToMyPage(user, post) {
     return {
         type: ADD_MYPAGE,
         payload: request
-    }
+    };
 }

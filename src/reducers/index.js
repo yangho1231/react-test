@@ -4,7 +4,6 @@ import { reducer as formReducer } from 'redux-form';
 import currentUser from './reducer_current_user';
 import myPage from './reducer_mypage';
 
-
 const rootReducer = combineReducers({
     form: formReducer,
     books: GetBook,

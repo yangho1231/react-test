@@ -4,19 +4,14 @@ import { connect } from 'react-redux';
 import { logout } from '../actions/index.js';
 
 class Navbar extends Component {
-    logout(e) {
-        e.preventDefault();
-        console.log("logout clicked");
+    logout(event) {
+        event.preventDefault();
         this.props.logout(this.props.user.user.user_id);
-
     }
-
     render () {
         const { user } = this.props;
         const { logo } = this.props;
-        console.log("logout", logo);
-        console.log("user", user);
-         if(user) {
+        if(user) {
            return(
                 <div>
                     <ul className='navbar-ul'>
@@ -42,8 +37,6 @@ class Navbar extends Component {
                     </ul>
                 </div>
             )
-    
-
        }
        else {
              return(

@@ -7,6 +7,8 @@ export const LOGIN_USER = 'LOGIN_USER';
 export const ADD_MYPAGE = 'ADD_MYPAGE';
 export const GET_MYPAGE = 'GET_MYPAGE';
 export const DELETE_BOOK = 'DELETE_BOOK';
+export const LOGOUT_USER = 'LOGOUT_USER';
+
 
 const ROOT_URL = 'http://localhost:3000/';
 
@@ -55,6 +57,12 @@ export function login(props) {
     return {
         type: LOGIN_USER,
         payload: request
+    }
+}
+export function logout(id) {
+    console.log("id", id);
+    return {
+        type: LOGOUT_USER
     }
 }
 export function addToMyPage(user, post) {

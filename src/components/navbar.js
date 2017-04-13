@@ -1,14 +1,31 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import { logout } from '../actions/index.js';
+
 class Navbar extends Component {
+    logout(e) {
+        e.preventDefault();
+        console.log("logout clicked");
+        this.props.logout(this.props.user.user.user_id);
+
+    }
+
     render () {
         const { user } = this.props;
+        const { logo } = this.props;
+        console.log("logout", logo);
+        console.log("user", user);
          if(user) {
-            return(
+           return(
                 <div>
                     <ul className='navbar-ul'>
-                        <li>Logut</li>
+                        <li onClick={this.logout.bind(this)}>
+                            <Link to='/'>
+                                LogOut
+                            </Link>
+                            
+                        </li>
                         <li>
                             <Link to='/'>
                                 Home
@@ -25,8 +42,10 @@ class Navbar extends Component {
                     </ul>
                 </div>
             )
-        }
-        else {
+    
+
+       }
+       else {
              return(
                 <div>
                     <ul className='navbar-ul'>
@@ -48,13 +67,14 @@ class Navbar extends Component {
                         </li>
                     </ul>
                 </div>
-            )
+            )            
         }
     }
 }
 function mapStateToProps(state) {
     return {
         user: state.user.post
+
     }
 }
-export default connect(mapStateToProps)(Navbar)
+export default connect(mapStateToProps, { logout })(Navbar)

@@ -39,7 +39,6 @@ class MyPage extends Component {
                     <div>My Books:
                             <h1>
                                 {this.renderList()}
-
                             </h1>
                     </div>
                 </div>

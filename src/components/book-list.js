@@ -11,7 +11,6 @@ class BookList extends Component {
     renderList() {
          return this.props.book.map((book) => {
             return (
-                             
                 <li className='book-list'
                     key={book.book_id}>
                     <Link to={'books/' + book.book_id}>
@@ -27,7 +26,6 @@ class BookList extends Component {
         return(
             <div>
                 {this.renderList()}
-
             </div>
         )
     }

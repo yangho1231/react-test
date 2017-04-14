@@ -19,9 +19,6 @@ class BookDetails extends Component {
         if(this.props.user) {
             this.props.selectUser(this.props.user.user.user_id);
         }
-        else { 
-            this.props.selectBook(this.props.params.id);
-        }
     }
 
     renderList() {
@@ -46,7 +43,6 @@ class BookDetails extends Component {
         if(!post) {
            return <div>Loading...</div>
         }
-
         if(user && list) {
             if(urlId === _.get(renderList, '[0].book')) {
                 return (
@@ -94,7 +90,6 @@ function mapStateToProps(state) {
         post: state.books.post,
         user: state.user.post,
         list: state.list.all
-
     }
 }
 export default connect(mapStateToProps, {selectBook, addToMyPage, getBooks, selectUser})(BookDetails);

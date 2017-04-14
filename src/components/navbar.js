@@ -6,11 +6,10 @@ import { logout } from '../actions/index.js';
 class Navbar extends Component {
     logout(event) {
         event.preventDefault();
-        this.props.logout(this.props.user.user.user_id);
+        this.props.logout();
     }
     render () {
         const { user } = this.props;
-        const { logo } = this.props;
         if(user) {
            return(
                 <div>

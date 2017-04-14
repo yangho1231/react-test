@@ -31,11 +31,11 @@ app.get('/books', controller.GetBooks);
 app.get('/books/:id', controller.GetBook);
 app.get('/mypage/:id', controller.GetMyPage);
 
-app.delete('/mypage/list/:id', function(req, res, next) {
-    db.delete_mylist([req.params.id], function(err, individual) {
+app.delete('/mypage/:uid/:bid', function(req, res, next) {
+    db.delete_mylist([req.params.bid, req.params.uid], function(err, individual) {
         if(err) res.status(500).send(err);
         else {
-            db.get_mypage_book(function(err, all) {
+            db.get_mypage_book([req.params.uid], function(err, all) {
                 if(err) res.status(500).send(err);
                 else res.send(all);
             });

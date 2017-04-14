@@ -8,9 +8,10 @@ class MyPage extends Component {
         this.props.selectUser(this.props.params.id)
     }
     removeList(postinfo) {
-        this.props.deleteBook(postinfo);
+        this.props.deleteBook(postinfo, parseInt(this.props.params.id));
     }
     renderList() {
+        const paramsId = parseInt(this.props.params.id);
           return this.props.list.map((list) => {
             return (
                 <li className='book-list'

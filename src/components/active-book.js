@@ -43,8 +43,8 @@ class BookDetails extends Component {
         if(!post) {
            return <div>Loading...</div>
         }
-        if(user && list) {
-            if(urlId === _.get(renderList, '[0].book')) {
+        if(list) {
+            if(urlId === _.get(renderList, '[0].book') || !user) {
                 return (
                     <div>
                         <h1>Title: {post.title}</h1>
@@ -72,15 +72,6 @@ class BookDetails extends Component {
                     </div>
                 )
             }
-        }
-        else {
-            return (
-                <div>
-                    <h1>Title: {post.title}</h1>
-                    <h2>Pages: {post.pages}</h2>
-                    <div>Reviews:</div>
-                </div>
-            )
         }
     }
 }

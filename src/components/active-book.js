@@ -40,7 +40,7 @@ class BookDetails extends Component {
         const renderList = this.renderList();
         const urlId = parseInt(this.props.params.id);
 
-        if(!post) {
+        if(!post || !user || !list) {
            return <div>Loading...</div>
         }
         if(list) {

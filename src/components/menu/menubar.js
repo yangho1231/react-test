@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { logout } from '../actions/index.js';
+import { logout } from '../../actions/index.js';
 
-class Navbar extends Component {
+class Menubar extends Component {
     logout(event) {
         event.preventDefault();
         this.props.logout();
@@ -69,4 +69,4 @@ function mapStateToProps(state) {
 
     }
 }
-export default connect(mapStateToProps, { logout })(Navbar)
+export default connect(mapStateToProps, { logout })(Menubar)

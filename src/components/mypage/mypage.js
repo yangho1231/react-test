@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectUser } from '../actions/index.js';
-import { deleteBook } from '../actions/index.js';
+import { selectUser } from '../../actions/index.js';
+import { deleteBook } from '../../actions/index.js';
 import _ from 'lodash';
 class MyPage extends Component {
     componentWillMount() {    

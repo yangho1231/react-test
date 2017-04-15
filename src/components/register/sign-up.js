@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { signUpUser } from '../actions/index';
+import { signUpUser } from '../../actions/index';
 import { connect } from 'react-redux';
 import { Link } from 'react-router'; 
 class SignUp extends Component {

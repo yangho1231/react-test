@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectBook } from '../actions/index';
-import { addToMyPage } from '../actions/index';
+import { selectBook } from '../../actions/index';
+import { addToMyPage } from '../../actions/index';
 import { Link } from 'react-router';
-import { selectUser } from '../actions/index.js';
-import { getBooks } from '../actions/index';
+import { selectUser } from '../../actions/index.js';
+import { getBooks } from '../../actions/index';
 import _ from 'lodash';
 
 class BookDetails extends Component {

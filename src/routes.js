@@ -1,14 +1,14 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import App from'./components/app';
-import Book from './components/book/book';
-import BookDetails from './components//activeBook/active-book';
+import Books from './components/book/books';
+import BookDetails from './components//currentBook/current-book';
 import SignUp from './components/register/sign-up';
 import Login from './components/login/login';
 import MyPage from './components/mypage/mypage';
 export default(
     <Route path = '/' component={App}>
-        <IndexRoute component={Book} />
+        <IndexRoute component={Books} />
         <Route path = '/books/:id' component={BookDetails} />
         <Route path ='/signup' component={SignUp} />
         <Route path ='/login' component={Login} />

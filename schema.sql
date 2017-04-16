@@ -11,6 +11,7 @@ CREATE TABLE users (
     username TEXT,
     email TEXT,
     password TEXT,
+    admin boolean,
     registered timestamp without time zone
 )
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { searchBook } from '../../actions/index';
+import { Link } from 'react-router';
 
 class SearchBar extends Component {
     constructor(props) {
@@ -24,7 +25,11 @@ class SearchBar extends Component {
                         value={this.state.term}
                         onChange={event => this.onInputChange(event.target.value)}
                     />
-                    <button>Enter</button>
+                    <button>
+                        <Link to='/search/book'>
+                            Enter
+                        </Link>
+                    </button>
                 </div>
             </form>
         );

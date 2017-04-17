@@ -7,6 +7,7 @@ import SignUp from './components/register/sign-up';
 import Login from './components/login/login';
 import MyPage from './components/mypage/mypage';
 import Admin from './components/admin/admin';
+import SearchResult from './components/search/searchResult';
 export default(
     <Route path = '/' component={App}>
         <IndexRoute component={Books} />
@@ -15,5 +16,6 @@ export default(
         <Route path ='/login' component={Login} />
         <Route path='/mypage/:id'  component={MyPage} />
         <Route path='/admin/users' component={Admin} />
+        <Route path='/search/book' component={SearchResult} />
     </Route>
 );

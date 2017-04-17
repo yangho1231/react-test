@@ -93,8 +93,8 @@ module.exports = {
         console.log(req.query.book);
         db.search_book([req.query.book], (err, book) => {
             console.log("book", book);
-            // if(err) res.stats(500).json(err);
-            // else res.send(book);
+            if(err) res.stats(500).json(err);
+            else res.send(book);
         })
     }
 };

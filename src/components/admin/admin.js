@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUsers } from '../../actions/index';
+import { deleteUser } from '../../actions/index';
 
 class Admin extends Component {
     componentWillMount() {
         this.props.getUsers();
+    }
+    deleteUser(user_id){
+        console.log("triggered");
+        this.props.deleteUser(user_id);
     }
     renderList() {
         return this.props.users.map((user) => {
@@ -14,7 +19,11 @@ class Admin extends Component {
                     <div>
                         Username: {user.username}
                     </div>
-                    <button className='delete'>Delete</button>
+                    <button 
+                        className='delete'
+                        onClick={() => this.deleteUser(user.user_id)}>
+                    Delete
+                    </button>
                 </li>
 
             )
@@ -22,8 +31,10 @@ class Admin extends Component {
     }
     render() {
         const {users} = this.props;
+
         return (
             <div>
+
                 <h1>Users:</h1>
                 <h1>{this.renderList()}</h1>
             </div>
@@ -37,4 +48,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { getUsers })(Admin);
+export default connect(mapStateToProps, { getUsers, deleteUser })(Admin);

@@ -73,9 +73,19 @@ module.exports = {
     },
     GetUsers: (req, res, next) => {
         db.get_users((err, users) => {
-            console.log("users", users)
             if(err) res.stats(500).json(err);
             else res.send(users);
+        })
+    },
+    DeleteUser: (req, res, next) => {
+        db.delete_user([req.params.id], (err, user) => {
+            if(err) res.stats(500).json(err);
+            else {
+                db.get_users((err, users) => {
+                    if(err) res.stats(500).json(err);
+                    else res.send(users);
+                }) 
+            }
         })
     }
 };

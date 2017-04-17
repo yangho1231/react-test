@@ -9,6 +9,7 @@ export const GET_MYPAGE = 'GET_MYPAGE';
 export const DELETE_BOOK = 'DELETE_BOOK';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const GET_USERS = 'GET_USERS';
+export const DELETE_USER = 'DELETE_USER';
 
 const ROOT_URL = 'http://localhost:3000/';
 
@@ -16,13 +17,6 @@ export function selectBook(id) {
     const request = axios.get(`${ROOT_URL}books/${id}`)
     return {
         type: BOOK_SELECTED,
-        payload: request
-    }
-}
-export function deleteBook(bid, uid) {
-    const request = axios.delete(`${ROOT_URL}mypage/${uid}/${bid}`);
-    return {
-        type: DELETE_BOOK,
         payload: request
     }
 }
@@ -79,3 +73,19 @@ export function getUsers() {
         payload: request
     }
 }
+export function deleteBook(bid, uid) {
+    const request = axios.delete(`${ROOT_URL}mypage/${uid}/${bid}`);
+    return {
+        type: DELETE_BOOK,
+        payload: request
+    }
+}
+export function deleteUser(id) {
+    console.log("userid", id);
+    const request = axios.delete(`${ROOT_URL}api/users/${id}`);
+    return {
+        type: DELETE_USER,
+        payload: request
+    }
+}
+

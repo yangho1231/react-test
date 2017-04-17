@@ -34,8 +34,7 @@ class Admin extends Component {
 
         return (
             <div>
-
-                <h1>Users:</h1>
+                <h1>Total Users: {users.length}</h1>         <h1>Users:</h1>
                 <h1>{this.renderList()}</h1>
             </div>
         );

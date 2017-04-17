@@ -8,7 +8,6 @@ class Admin extends Component {
         this.props.getUsers();
     }
     deleteUser(user_id){
-        console.log("triggered");
         this.props.deleteUser(user_id);
     }
     renderList() {

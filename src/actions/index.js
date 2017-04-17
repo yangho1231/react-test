@@ -81,7 +81,6 @@ export function deleteBook(bid, uid) {
     }
 }
 export function deleteUser(id) {
-    console.log("userid", id);
     const request = axios.delete(`${ROOT_URL}api/users/${id}`);
     return {
         type: DELETE_USER,

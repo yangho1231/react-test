@@ -28,7 +28,7 @@ app.delete('/api/users/:id', controller.DeleteUser);
 app.post('/api/users', controller.PostUser);
 app.post('/api/login', controller.PostLogin);
 app.post('/api/mypage', controller.PostMypage);
-
+app.get('/api/search', controller.SearchBook);
 
 app.listen(3000, function() {
     console.log("I am listening");

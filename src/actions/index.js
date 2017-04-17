@@ -10,6 +10,8 @@ export const DELETE_BOOK = 'DELETE_BOOK';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const GET_USERS = 'GET_USERS';
 export const DELETE_USER = 'DELETE_USER';
+export const SEARCH_BOOK = 'SEARCH_BOOK';
+
 
 const ROOT_URL = 'http://localhost:3000/';
 
@@ -46,6 +48,7 @@ export function signUpUser(props) {
     }
 }
 export function login(props) {    
+    console.log("props", props);
     const request = axios.post(`${ROOT_URL}api/login`, props);
     return {
         type: LOGIN_USER,
@@ -57,8 +60,9 @@ export function logout(id) {
         type: LOGOUT_USER
     }
 }
-export function addToMyPage(user, post) {
-    const request = axios.post(`${ROOT_URL}api/mypage`, user, post);
+export function addToMyPage(user) {
+    console.log("userpost", user);
+    const request = axios.post(`${ROOT_URL}api/mypage`, user);
     
     return {
         type: ADD_MYPAGE,
@@ -87,4 +91,12 @@ export function deleteUser(id) {
         payload: request
     }
 }
+export function searchBook(book) {
+    console.log(book, "book");
+    const request = axios.get(`${ROOT_URL}api/search?book=${book}`)
 
+    return {
+        type: SEARCH_BOOK,
+        payload: request
+    }
+}

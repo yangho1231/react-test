@@ -66,6 +66,7 @@ module.exports = {
         });    
     },
     PostMypage: (req, res, next) => {
+        console.log(req.body, "body");
         db.add_mypage([req.body.userId, req.body.bookId], (err, ids) => {
             if(err) res.stats(500).json(err);
             else res.send(ids);
@@ -86,6 +87,14 @@ module.exports = {
                     else res.send(users);
                 }) 
             }
+        })
+    },
+    SearchBook: (req, res, next) => {
+        console.log(req.query.book);
+        db.search_book([req.query.book], (err, book) => {
+            console.log("book", book);
+            // if(err) res.stats(500).json(err);
+            // else res.send(book);
         })
     }
 };

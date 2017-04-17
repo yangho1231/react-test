@@ -70,5 +70,12 @@ module.exports = {
             if(err) res.stats(500).json(err);
             else res.send(ids);
         });
+    },
+    GetUsers: (req, res, next) => {
+        db.get_users((err, users) => {
+            console.log("users", users)
+            if(err) res.stats(500).json(err);
+            else res.send(users);
+        })
     }
 };

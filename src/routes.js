@@ -6,6 +6,7 @@ import BookDetails from './components//currentBook/current-book';
 import SignUp from './components/register/sign-up';
 import Login from './components/login/login';
 import MyPage from './components/mypage/mypage';
+import Admin from './components/admin/admin';
 export default(
     <Route path = '/' component={App}>
         <IndexRoute component={Books} />
@@ -13,5 +14,6 @@ export default(
         <Route path ='/signup' component={SignUp} />
         <Route path ='/login' component={Login} />
         <Route path='/mypage/:id'  component={MyPage} />
+        <Route path='/admin/users' component={Admin} />
     </Route>
 );

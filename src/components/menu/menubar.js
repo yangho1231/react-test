@@ -57,6 +57,11 @@ class Menubar extends Component {
                                 Register
                             </Link>
                         </li>
+                        <li>
+                            <Link to='/admin/users'>
+                                Admin
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             )            

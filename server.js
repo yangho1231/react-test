@@ -22,6 +22,7 @@ const controller = require('./mainCtrl.js');
 app.get('/books', controller.GetBooks);
 app.get('/books/:id', controller.GetBook);
 app.get('/mypage/:id', controller.GetMyPage);
+app.get('/api/users', controller.GetUsers);
 app.delete('/mypage/:uid/:bid', controller.DeleteMyList);
 app.post('/api/users', controller.PostUser);
 app.post('/api/login', controller.PostLogin);

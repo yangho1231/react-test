@@ -8,7 +8,7 @@ export const ADD_MYPAGE = 'ADD_MYPAGE';
 export const GET_MYPAGE = 'GET_MYPAGE';
 export const DELETE_BOOK = 'DELETE_BOOK';
 export const LOGOUT_USER = 'LOGOUT_USER';
-
+export const GET_USERS = 'GET_USERS';
 
 const ROOT_URL = 'http://localhost:3000/';
 
@@ -70,4 +70,12 @@ export function addToMyPage(user, post) {
         type: ADD_MYPAGE,
         payload: request
     };
+}
+export function getUsers() {
+    const request = axios.get(`${ROOT_URL}api/users`);
+    console.log('getUsers')
+    return {
+        type: GET_USERS,
+        payload: request
+    }
 }

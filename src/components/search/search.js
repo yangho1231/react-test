@@ -1,21 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { searchBook } from '../../actions/index';
 import { Link } from 'react-router';
 
 class SearchBar extends Component {
+
     constructor(props) {
         super(props);
         this.state = { term: '' };
         this.onFormSubmit = this.onSubmit.bind(this);
     }
+    static contextTypes = {
+        router: PropTypes.object
+    };
     onInputChange(event) {
         this.setState({term: event});
     }
     onSubmit(event) {
         event.preventDefault();
         const lowerCase = this.state.term.toLowerCase();
-        this.props.searchBook(lowerCase);
+        this.props.searchBook(lowerCase).then(() => { this.context.router.push('/search/book?='+ this.state.term); });
     }
     render() {
         return (
@@ -25,10 +29,8 @@ class SearchBar extends Component {
                         value={this.state.term}
                         onChange={event => this.onInputChange(event.target.value)}
                     />
-                    <button>
-                        <Link to='/search/book'>
+                    <button type='submit'>
                             Enter
-                        </Link>
                     </button>
                 </div>
             </form>

@@ -16,6 +16,6 @@ export default(
         <Route path ='/login' component={Login} />
         <Route path='/mypage/:id'  component={MyPage} />
         <Route path='/admin/users' component={Admin} />
-        <Route path='/search/book' component={SearchResult} />
+        <Route path='/search' component={SearchResult} />
     </Route>
 );

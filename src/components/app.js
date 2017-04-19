@@ -7,7 +7,6 @@ export default class App extends Component {
       <div>
         <Menu />
         <SearchBar />
-
         {this.props.children}
       </div>
     );

@@ -92,13 +92,11 @@ module.exports = {
     SearchBook: (req, res, next) => {
         let flag = true;
         db.get_books((err, book) => {
-            console.log("book", book);
             if(err) res.stats(500).json(err);
             else {
-                for(var i = 0; i < book.length; i++) {
+                for(let i = 0; i < book.length; i++) {
                     if(book[i].title.toLowerCase() === req.query.book) {
                         flag = false;
-                        console.log("found match");
                         db.search_book([req.query.book], (err, book) => {
                             if(err) res.stats(500).json(err);
                             else res.send(book);

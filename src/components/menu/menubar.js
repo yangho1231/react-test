@@ -15,20 +15,14 @@ class Menubar extends Component {
                 <div>
                     <ul className='navbar-ul'>
                         <li onClick={this.logout.bind(this)}>
-                            <Link to='/'>
-                                LogOut
-                            </Link>
+                            <Link to='/'>LogOut</Link>
                             
                         </li>
                         <li>
-                            <Link to='/'>
-                                Home
-                            </Link>
+                            <Link to='/'>Home</Link>
                         </li>
                         <li>
-                            <Link to={'/mypage/' + user.user.user_id}>
-                                    My Page
-                            </Link>
+                            <Link to={'/mypage/' + user.user.user_id}>My Page</Link>
                         </li>
                         <li>
                             {user.user.username}
@@ -42,25 +36,17 @@ class Menubar extends Component {
                 <div>
                     <ul className='navbar-ul'>
                         <li>
-                            <Link to='/'>
-                                Home
-                            </Link>
+                            <Link to='/'>Home</Link>
                         </li>
                         <li>Mypage</li>
                         <li>
-                            <Link to='/login'>
-                                Login
-                            </Link>
+                            <Link to='/login'>Login</Link>
                         </li>
                         <li>
-                            <Link to='/signup'>
-                                Register
-                            </Link>
+                            <Link to='/signup'>Register</Link>
                         </li>
                         <li>
-                            <Link to='/admin/users'>
-                                Admin
-                            </Link>
+                            <Link to='/admin/users'>Admin</Link>
                         </li>
                     </ul>
                 </div>

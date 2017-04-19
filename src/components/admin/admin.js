@@ -30,49 +30,47 @@ class Admin extends Component {
     }
     render() {
         const {users} = this.props;
-
         return (
             <div>
-                <h1>Total Users: {users.length}</h1>         <h1>Users:</h1>
+                <h1>Total Users: {users.length}</h1>
+                <h1>Users:</h1>
                 <h1>{this.renderList()}</h1>
-                            <form onSubmit={this.onFormSubmit}>
-              <div id="auth-login-email">
-                <p>Book Title</p>
-                <input 
-                  size="20" 
-                  type="text"
+              <form onSubmit={this.onFormSubmit}>
+                <div id="auth-login-email">
+                    <p>Book Title</p>
+                    <input 
+                    size="20" 
+                    type="text"
 
-                  onChange={this.onEmailChange} />
-              </div>
-              <div id="auth-login-password">
-                <p>Pages</p>
-                <input 
-                  size="20" 
-                  type="password" 
+                    onChange={this.onEmailChange} />
+                </div>
+                <div id="auth-login-password">
+                    <p>Pages</p>
+                    <input 
+                    size="20" 
+                    type="password" 
 
-                  onChange={this.onPasswordChange} />
-              </div>
-              <div id="auth-login-password">
-                <p>Image</p>
-                <input 
-                  size="20" 
-                  type="file" 
+                    onChange={this.onPasswordChange} />
+                </div>
+                <div id="auth-login-password">
+                    <p>Image</p>
+                    <input 
+                    size="20" 
+                    type="file" 
 
-                  onChange={this.onPasswordChange} />
-              </div>
-              <div id="auth-login-button">
-                <button type="submit">Submit</button>
-              </div>
-            </form>
+                    onChange={this.onPasswordChange} />
+                </div>
+                <div id="auth-login-button">
+                    <button type="submit">Submit</button>
+                </div>
+             </form>
             </div>
         );
     }
 }
-
 function mapStateToProps(state) {
     return {
         users: state.users.all
     }
 }
-
 export default connect(mapStateToProps, { getUsers, deleteUser })(Admin);

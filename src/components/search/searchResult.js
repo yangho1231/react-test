@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 class SearchResult extends Component {
 
     renderList() {
-        return this.props.book.map((book) => {
+        return this.props.book.all.map((book) => {
             return (
                 <li 
                     key={book.book_id}>
@@ -16,19 +16,37 @@ class SearchResult extends Component {
         })
     }
     render() {
-        
-        return (
-            <div>
-                <div>test</div>
-                {this.renderList()}
+        const { book } = this.props;
+        const result = book.all.length;
+        const noResult = book.post
+        if(result !== 0) {
+            return (
+                <div>
+                    <div>test</div>
+                    {this.renderList()}
 
-            </div>
-        );
+                </div>
+            );
+        }
+        else if(noResult){
+            return (
+                <div>
+                    <h1>Couldn't find  {book.post}</h1>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div></div>
+            )
+        }
     }
 }
+
 function mapStateToProps(state) {
     return {
-        book: state.search.all
+        book: state.search
+
     }
 }
 export default connect(mapStateToProps)(SearchResult);

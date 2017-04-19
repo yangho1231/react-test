@@ -92,7 +92,6 @@ export function deleteUser(id) {
     }
 }
 export function searchBook(book) {
-    console.log(book, "book");
     const request = axios.get(`${ROOT_URL}api/search?book=${book}`)
 
     return {

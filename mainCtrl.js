@@ -90,11 +90,28 @@ module.exports = {
         })
     },
     SearchBook: (req, res, next) => {
-
-        db.search_book([req.query.book], (err, book) => {
+        let flag = true;
+        db.get_books((err, book) => {
             console.log("book", book);
             if(err) res.stats(500).json(err);
-            else res.send(book);
+            else {
+                for(var i = 0; i < book.length; i++) {
+                    if(book[i].title.toLowerCase() === req.query.book) {
+                        flag = false;
+                        console.log("found match");
+                        db.search_book([req.query.book], (err, book) => {
+                            if(err) res.stats(500).json(err);
+                            else res.send(book);
+                        })
+                    }
+                }
+                if(flag) {
+                    res.send({
+                        search: req.query.book,
+                        result: "Search didn't match"
+                    })
+                }
+            }
         })
     }
 };

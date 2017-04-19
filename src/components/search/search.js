@@ -19,7 +19,12 @@ class SearchBar extends Component {
     onSubmit(event) {
         event.preventDefault();
         const lowerCase = this.state.term.toLowerCase();
-        this.props.searchBook(lowerCase).then(() => { this.context.router.push('/search?book=' + this.state.term); this.setState({term: ''})});
+        this.props.searchBook(lowerCase).then((res) => { console.log("res", res);
+        if(res.payload.data === "Search didn't match") this.context.router.push('/search?book=' + this.state.term);
+        else { 
+            this.context.router.push('/search?book=' + this.state.term); 
+            this.setState({term: ''})
+        }});
     }
     render() {
         return (

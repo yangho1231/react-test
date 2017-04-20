@@ -18,7 +18,7 @@ class SearchResult extends Component {
     render() {
         const { book } = this.props;
         const result = book.all.length;
-        const noResult = book.post
+        const noResult = book.post;
         if(result !== 0) {
             return (
                 <div>
@@ -29,17 +29,11 @@ class SearchResult extends Component {
             );
         }
         else if(noResult){
-            return (
-                <div>
-                    <h1>Couldn't find  {book.post}</h1>
-                </div>
-            )
+            return <div>
+                        <h1>Couldn't find  {book.post}</h1>
+                   </div>
         }
-        else {
-            return (
-                <div></div>
-            )
-        }
+        else return <div></div>    
     }
 }
 

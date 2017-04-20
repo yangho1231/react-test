@@ -23,18 +23,13 @@ class BookList extends Component {
 
     render() {
         const { user } = this.props;
-        return(
-            <div>
-                {this.renderList()}
-            </div>
-        )
+        return<div>{this.renderList()}</div>
     }
 }
 function mapStateToProps(state) {
     return {
         book: state.books.all,
         user: state.user.post
-
     }
 }
 export default connect(mapStateToProps, {getBooks})(BookList);

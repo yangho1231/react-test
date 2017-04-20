@@ -16,7 +16,6 @@ class Menubar extends Component {
                     <ul className='navbar-ul'>
                         <li onClick={this.logout.bind(this)}>
                             <Link to='/'>LogOut</Link>
-                            
                         </li>
                         <li>
                             <Link to='/'>Home</Link>

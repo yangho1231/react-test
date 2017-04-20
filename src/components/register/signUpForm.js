@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { signUpUser } from '../../actions/index';
 import { connect } from 'react-redux';
 import { Link } from 'react-router'; 
-class SignUp extends Component {
+class SignUpForm extends Component {
   static contextTypes = {
     router: PropTypes.object
   };
@@ -20,6 +20,7 @@ class SignUp extends Component {
     const { fields: { username, email, password, passwordConfirmation }, handleSubmit } = this.props;
 
     return (
+
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <h3>Create A New Post</h3>
 
@@ -86,4 +87,4 @@ export default reduxForm({
   form: 'PostsNewForm',
   fields: ['username', 'email', 'password', 'passwordConfirmation'],
   validate
-}, null, { signUpUser })(SignUp);
+}, null, { signUpUser })(SignUpForm);

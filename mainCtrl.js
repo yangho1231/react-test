@@ -79,15 +79,22 @@ module.exports = {
         })
     },
     DeleteUser: (req, res, next) => {
-        db.delete_user([req.params.id], (err, user) => {
+        console.log(req.params, "req");
+        db.delete_mypage([req.params.id],(err, user) => {
             if(err) res.stats(500).json(err);
-            else {
-                db.get_users((err, users) => {
+            else{
+                db.delete_user([req.params.id], (err, user) => {
                     if(err) res.stats(500).json(err);
-                    else res.send(users);
-                }) 
+                    else {
+                        db.get_users((err, users) => {
+                            if(err) res.stats(500).json(err);
+                            else res.send(users);
+                        }) 
+                    }
+                })
             }
         })
+
     },
     SearchBook: (req, res, next) => {
         let flag = true;

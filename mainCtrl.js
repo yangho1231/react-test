@@ -79,7 +79,6 @@ module.exports = {
         })
     },
     DeleteUser: (req, res, next) => {
-        console.log(req.params, "req");
         db.delete_mypage([req.params.id],(err, user) => {
             if(err) res.stats(500).json(err);
             else{

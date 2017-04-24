@@ -22,9 +22,7 @@ class SearchResult extends Component {
         if(result !== 0) {
             return (
                 <div>
-                    <div>test</div>
                     {this.renderList()}
-
                 </div>
             );
         }
